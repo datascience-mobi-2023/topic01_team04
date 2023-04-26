@@ -1,3 +1,8 @@
 # Notizen zum Tutorium 26.04.23
 
+<<<<<<< Updated upstream
 erste Zeile ist die Zuordnung der Kleidungsstücke
+=======
+- Datensatz ist CSV Datei -> reshaping der Dateien notwendig 
+- KNN-Modell (Trainingsdaten vs Testdaten)
+>>>>>>> Stashed changes
