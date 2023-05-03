@@ -1,5 +1,7 @@
 # Pakete etc. 
 # Pandas, Numpy und Matplotlib davor über Miniforge Prompt herunterladen sonst geht hier gar nix
+# Panda is pandas dataframe
+# numpy is number array (general python tool)
 
 import numpy as np
 import pandas as pnd
