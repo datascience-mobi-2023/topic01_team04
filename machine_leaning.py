@@ -21,7 +21,7 @@ traindata = pnd.read_csv('fashion-mnist_train.csv')
 pixel = traindata.drop('label', axis=1).to_numpy()
 label = traindata['label'].to_numpy()
 img = pixel.reshape((-1, 28, 28))
-
+print("Hello world")
 """Wer sich die Bilder mal anschauen will:
 
 anz_img = len(img)
