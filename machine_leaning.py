@@ -22,6 +22,10 @@ pixel = traindata.drop('label', axis=1).to_numpy()
 label = traindata['label'].to_numpy()
 img = pixel.reshape((-1, 28, 28))
 
+#function that returns a centered matrix as preparation for PCA
+def centering(Matrix): 
+    Matrix_c = Matrix - Matrix.mean()
+    return Matrix_c 
 """Wer sich die Bilder mal anschauen will:
 
 anz_img = len(img)
@@ -38,6 +42,7 @@ for i, ax in enumerate(axes.flat):
         ax.set_axis_off()
 
 plt.show()"""
+
 
 #commit with text
 
