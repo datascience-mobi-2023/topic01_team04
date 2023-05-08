@@ -7,7 +7,6 @@ import numpy as np
 import pandas as pnd
 import matplotlib.pyplot as plt
 
-
 # Import der Dateien 
 # ANMERKUNG: Funktioniert auch nur, wenn die Dateien in der SELBEN Directory wie das Skript sind -> Im Git-Ordner
 # Problem mit Git da CSV-Dateien zu groß sind um sie zu committen, sonst kann man gar nix mehr pushen 
@@ -35,15 +34,16 @@ centered_img = img - img.mean(axis=(1,2), keepdims=True)
 #defining variable and creating covariance matrix while reshaping/flattening the images to obtain a 2D array, rowvar = False to compute cov matrix over rows
 covariance_matrix = np.cov(centered_img.reshape(num_img, -1), rowvar=False)
 
+#%%
+# Printing for testing
 print(covariance_matrix)
 print(covariance_matrix.shape)
 
-
-#print(np.cov(img[0].flatten(), rowvar=True))
-#print(type(img[0].flatten()))
-
-
-#before continuing note that the np.cov() function has to be given a 1-Dimensional array, otherwise each row/column is considered a variable (and not each pixel as intended)
+# Computing eigenvalues and eigenvectors of covariance matrix & printing for testing purposes
+eigen_val , eigen_vec = np.linalg.eigh(covariance_matrix)
+#%%
+print(eigen_val)
+print(eigen_vec)
 
 """Wer sich die Bilder mal anschauen will:
 
@@ -66,3 +66,5 @@ plt.show()"""
 #commit with text
 
 
+
+# %%
