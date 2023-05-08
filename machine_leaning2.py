@@ -45,6 +45,22 @@ eigen_val , eigen_vec = np.linalg.eigh(covariance_matrix)
 print(eigen_val)
 print(eigen_vec)
 
+# Sorting Eigenvalues and Eigenvectors
+# get indices of sorted values, we need to add -1 to indicate that we want to sort in descending order
+sorted_index = np.argsort(eigen_val)[::-1]
+ 
+sorted_eigenvalue = eigen_val[sorted_index]
+sorted_eigenvectors = eigen_vec[:,sorted_index]
+
+# Selecting a certain amount of PCs (OPTIMIZATION NEEDED!)
+ 
+principal_component_number = 4
+eigenvectors_pca = sorted_eigenvectors[:,0:principal_component_number]
+
+# transforming data
+
+reduced_matrix = np.dot(eigenvector_pca.transpose(),X_meaned.transpose()).transpose()
+
 """Wer sich die Bilder mal anschauen will:
 
 anz_img = len(img)
@@ -62,9 +78,3 @@ for i, ax in enumerate(axes.flat):
 
 plt.show()"""
 
-
-#commit with text
-
-
-
-# %%
