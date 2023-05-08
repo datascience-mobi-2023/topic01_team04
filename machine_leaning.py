@@ -20,23 +20,17 @@ traindata = pnd.read_csv('fashion-mnist_train.csv')
 
 pixel = traindata.drop('label', axis=1).to_numpy()
 label = traindata['label'].to_numpy()
+#first argument for reshape function forces function to output a list? of 28x28 matrices
+#if you want to take one picture, you have to use img[x] instead of img[[x]], as the latter returns a list with one element
 img = pixel.reshape((-1, 28, 28))
 num_img = pixel.shape[0]
 
 #function that returns a centered matrix as preparation for PCA
-#def centering(Matrix): 
-#    Matrix = Matrix.flatten()
-#    Matrix_c = Matrix - Matrix.mean()
-#    return Matrix_c 
-
-centered_img = img - img.mean(axis=(1,2), keepdims=True)
-covariance_matrix = np.cov(centered_img.reshape(num_img, -1), rowvar=False)
-print(covariance_matrix)
-print(covariance_matrix.shape)
-
-
-#print(np.cov(img[0].flatten(), rowvar=True))
-#print(type(img[0].flatten()))
+def centering(Matrix): 
+    Matrix = Matrix.flatten()
+    Matrix_c = Matrix - Matrix.mean()
+    return Matrix_c 
+print(centering(img[[1]]))
 
 
 #before continuing note that the np.cov() function has to be given a 1-Dimensional array, otherwise each row/column is considered a variable (and not each pixel as intended)
