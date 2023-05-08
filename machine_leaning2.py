@@ -16,7 +16,7 @@ import matplotlib.pyplot as plt
 testdata = pnd.read_csv('fashion-mnist_test.csv')
 traindata = pnd.read_csv('fashion-mnist_train.csv')
 
-# Extraktion der Pixel und Label aus der CSV Datei, 'reshaping' der CSV Datei als 28 x 28 Bild (img)
+# Extraction of pixels and labels from csv via .to_numpy, reshaping to create a 3D array containing separate 28 x 28 pictures
 
 pixel = traindata.drop('label', axis=1).to_numpy()
 label = traindata['label'].to_numpy()
@@ -29,8 +29,12 @@ num_img = pixel.shape[0]
 #    Matrix_c = Matrix - Matrix.mean()
 #    return Matrix_c 
 
+# subtracting mean of each pixel while keeping the dimensions of the images to center the images in preparation for PCA
 centered_img = img - img.mean(axis=(1,2), keepdims=True)
+
+#defining variable and creating covariance matrix while reshaping/flattening the images to obtain a 2D array, rowvar = False to compute cov matrix over rows
 covariance_matrix = np.cov(centered_img.reshape(num_img, -1), rowvar=False)
+
 print(covariance_matrix)
 print(covariance_matrix.shape)
 
