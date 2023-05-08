@@ -20,7 +20,7 @@ pixel = traindata.drop('label', axis=1).to_numpy()
 label = traindata['label'].to_numpy()
 img = pixel.reshape((-1, 28, 28))
 
-# centering of pixels
+# centering of pixels (in Ausprobierphase)
 cen_sub = []
 for i in range(0,len(img)):
     cen_sub += [np.mean(img[i,])]
@@ -36,6 +36,8 @@ print(len(cen_sub))
 #print(cen_img)
 #print(len(cen_img))
 ##print(type(img))
+
+
 ## Wer sich die Bilder mal anschauen will: 
 
 #anz_img = len(img)
