@@ -24,8 +24,13 @@ img = pixel.reshape((-1, 28, 28))
 
 #function that returns a centered matrix as preparation for PCA
 def centering(Matrix): 
+    Matrix = Matrix.flatten()
     Matrix_c = Matrix - Matrix.mean()
     return Matrix_c 
+print(centering(img[[1]]))
+
+#before continuing note that the np.cov() function has to be given a 1-Dimensional array, otherwise each row/column is considered a variable (and not each pixel as intended)
+
 """Wer sich die Bilder mal anschauen will:
 
 anz_img = len(img)
