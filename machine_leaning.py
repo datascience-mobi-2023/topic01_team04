@@ -20,22 +20,38 @@ pixel = traindata.drop('label', axis=1).to_numpy()
 label = traindata['label'].to_numpy()
 img = pixel.reshape((-1, 28, 28))
 
-# Wer sich die Bilder mal anschauen will: 
+# centering of pixels
+cen_sub = []
+for i in range(0,len(img)):
+    cen_sub += [np.mean(img[i,])]
+    
 
-anz_img = len(img)
-rows = int(np.sqrt(anz_img))
-cols = int(np.ceil(anz_img / rows))
-rows = np.minimum(rows, 20)
-cols = np.minimum(cols, 20)
-fig, axes = plt.subplots(rows, cols, figsize=(10, 10))
-for i, ax in enumerate(axes.flat):
-    if i < anz_img:
-        ax.imshow(img[i], cmap='gray')
-        ax.set_axis_off()
-    else:
-        ax.set_axis_off()
+print(np.mean(img, axis=1))
 
-plt.show()
+#cen_sub = np.mean(img, axis = 1)
+print(cen_sub)
+print(len(cen_sub))
+#cen_img = img[:len(img)]
+
+#print(cen_img)
+#print(len(cen_img))
+##print(type(img))
+## Wer sich die Bilder mal anschauen will: 
+
+#anz_img = len(img)
+#rows = int(np.sqrt(anz_img))
+#cols = int(np.ceil(anz_img / rows))
+#rows = np.minimum(rows, 20)
+#cols = np.minimum(cols, 20)
+#fig, axes = plt.subplots(rows, cols, figsize=(10, 10))
+#for i, ax in enumerate(axes.flat):
+#    if i < anz_img:
+#        ax.imshow(img[i], cmap='gray')
+#        ax.set_axis_off()
+#    else:
+#        ax.set_axis_off()
+
+#plt.show()
 
 
 
