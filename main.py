@@ -14,11 +14,11 @@ import matplotlib.pyplot as plt
 
 testdata = pnd.read_csv('fashion-mnist_test.csv')
 traindata = pnd.read_csv('fashion-mnist_train.csv')
-
-# Extraction of pixels and labels from csv via .to_numpy, reshaping to create a 3D array containing separate 28 x 28 pictures
-
 pixel = traindata.drop('label', axis=1).to_numpy()
 label = traindata['label'].to_numpy()
+
+    
+
 img = pixel.reshape((-1, 28, 28))
 num_img = pixel.shape[0]
 
@@ -59,7 +59,7 @@ eigenvectors_pca = sorted_eigenvectors[:,0:principal_component_number]
 
 # transforming data
 
-reduced_matrix = np.dot(eigenvector_pca.transpose(),X_meaned.transpose()).transpose()
+reduced_matrix = np.dot(eigenvectors_pca.transpose(),X_meaned.transpose()).transpose()
 
 """Wer sich die Bilder mal anschauen will:
 
