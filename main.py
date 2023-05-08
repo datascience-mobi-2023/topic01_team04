@@ -57,9 +57,7 @@ sorted_eigenvectors = eigen_vec[:,sorted_index]
 principal_component_number = 4
 eigenvectors_pca = sorted_eigenvectors[:,0:principal_component_number]
 
-# transforming data
-
-reduced_matrix = np.dot(eigenvectors_pca.transpose(),X_meaned.transpose()).transpose()
+# transforming data:
 
 """Wer sich die Bilder mal anschauen will:
 
