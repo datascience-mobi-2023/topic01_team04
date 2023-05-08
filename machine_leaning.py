@@ -1,5 +1,7 @@
 # Pakete etc. 
 # Pandas, Numpy und Matplotlib davor über Miniforge Prompt herunterladen sonst geht hier gar nix
+# Panda is pandas dataframe
+# numpy is number array (general python tool)
 
 import numpy as np
 import pandas as pnd
@@ -18,42 +20,17 @@ traindata = pnd.read_csv('fashion-mnist_train.csv')
 
 pixel = traindata.drop('label', axis=1).to_numpy()
 label = traindata['label'].to_numpy()
+#first argument for reshape function forces function to output a list? of 28x28 matrices
+#if you want to take one picture, you have to use img[x] instead of img[[x]], as the latter returns a list with one element
 img = pixel.reshape((-1, 28, 28))
+num_img = pixel.shape[0]
 
-# centering of pixels (in Ausprobierphase)
-cen_sub = []
-for i in range(0,len(img)):
-    cen_sub += [np.mean(img[i,])]
-    
-
-print(np.mean(img, axis=1))
-
-#cen_sub = np.mean(img, axis = 1)
-print(cen_sub)
-print(len(cen_sub))
-#cen_img = img[:len(img)]
-
-#print(cen_img)
-#print(len(cen_img))
-##print(type(img))
-
-
-## Wer sich die Bilder mal anschauen will: 
-
-#anz_img = len(img)
-#rows = int(np.sqrt(anz_img))
-#cols = int(np.ceil(anz_img / rows))
-#rows = np.minimum(rows, 20)
-#cols = np.minimum(cols, 20)
-#fig, axes = plt.subplots(rows, cols, figsize=(10, 10))
-#for i, ax in enumerate(axes.flat):
-#    if i < anz_img:
-#        ax.imshow(img[i], cmap='gray')
-#        ax.set_axis_off()
-#    else:
-#        ax.set_axis_off()
-
-#plt.show()
+#function that returns a centered matrix as preparation for PCA
+def centering(Matrix): 
+    Matrix = Matrix.flatten()
+    Matrix_c = Matrix - Matrix.mean()
+    return Matrix_c 
+print(centering(img[[1]]))
 
 
 
@@ -61,9 +38,26 @@ print(len(cen_sub))
 
 
 
+#before continuing note that the np.cov() function has to be given a 1-Dimensional array, otherwise each row/column is considered a variable (and not each pixel as intended)
+
+"""Wer sich die Bilder mal anschauen will:
+
+anz_img = len(img)
+rows = int(np.sqrt(anz_img))
+cols = int(np.ceil(anz_img / rows))
+rows = np.minimum(rows, 20)
+cols = np.minimum(cols, 20)
+fig, axes = plt.subplots(rows, cols, figsize=(10, 10))
+for i, ax in enumerate(axes.flat):
+    if i < anz_img:
+        ax.imshow(img[i], cmap='gray')
+        ax.set_axis_off()
+    else:
+        ax.set_axis_off()
+
+plt.show()"""
 
 
-
-
+#commit with text
 
 
