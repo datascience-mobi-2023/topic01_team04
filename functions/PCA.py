@@ -8,7 +8,7 @@ def centering():
     return centered_img
 
 def pca(centered_img): #added input variable centered_img
-    covariance_matrix = np.cov(centered_img.reshape(num_img, -1), rowvar=False) #please explain further
+    covariance_matrix = np.cov(centered_img.reshape(num_img, -1), rowvar=False) #defining variable and creating covariance matrix while reshaping/flattening the images to obtain a 2D array, rowvar = False to compute cov matrix over rows
     eigen_val , eigen_vec = np.linalg.eigh(covariance_matrix) #eigh function has two outputs, so two values have to be defined
     sorted_index = np.argsort(eigen_val)[::-1] #gives indexes to sort array from lowes to highest and inverts this vector
     sorted_eigenvalue = eigen_val[sorted_index] #apply sorting to eigenvalues
