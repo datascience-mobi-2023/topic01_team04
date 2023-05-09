@@ -7,6 +7,8 @@ import numpy as np
 import pandas as pnd
 import matplotlib.pyplot as plt
 
+from functions.PCA import pca
+
 # Import der Dateien 
 # ANMERKUNG: Funktioniert auch nur, wenn die Dateien in der SELBEN Directory wie das Skript sind -> Im Git-Ordner
 # Problem mit Git da CSV-Dateien zu groß sind um sie zu committen, sonst kann man gar nix mehr pushen 
@@ -30,6 +32,7 @@ num_img = pixel.shape[0]
 
 # subtracting mean of each pixel while keeping the dimensions of the images to center the images in preparation for PCA
 centered_img = img - img.mean(axis=(1,2), keepdims=True)
+pca(centered_img[0], 1)
 
 #defining variable and creating covariance matrix while reshaping/flattening the images to obtain a 2D array, rowvar = False to compute cov matrix over rows
 covariance_matrix = np.cov(centered_img.reshape(num_img, -1), rowvar=False)
@@ -58,6 +61,8 @@ principal_component_number = 4
 eigenvectors_pca = sorted_eigenvectors[:,0:principal_component_number]
 
 # transforming data:
+
+
 
 """Wer sich die Bilder mal anschauen will:
 
