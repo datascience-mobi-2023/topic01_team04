@@ -15,7 +15,7 @@ def pca(centered_img, prop_variance): #added input variable centered_img
     sorted_eigenvectors = eigen_vec[:,sorted_index] #apply sorting to eigenvectors, first coordinate (vertical axis) has to be : to select all rows
     def propvar(prop_var):
         sum = 0
-        sum_eigenvalues = sum(eigen_val.flatten)
+        sum_eigenvalues = np.sum(eigen_val)
         principal_component_number = -1
         while sum <= prop_var:
             for i in sorted_eigenvalue:
