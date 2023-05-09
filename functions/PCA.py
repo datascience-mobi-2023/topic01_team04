@@ -3,7 +3,7 @@ import pandas as pnd
 import matplotlib.pyplot as plt
 #import main #No module named 'main'
 
-def centering():
+def centering(): # 'centering ist ein python eigenname, das Python Modul wird hiermit überschrieben. Das kann zu Problemen führen.'
     centered_img = img - img.mean(axis=(1,2), keepdims=True) #mean is calculated along 2nd and 3rd axis, meaning the heigth and the width of an image (remember: the first dimension is which picture we are looking at)
     return centered_img
 
@@ -16,3 +16,5 @@ def pca(centered_img): #added input variable centered_img
     principal_component_number = 4 #yeah science
     eigenvectors_pca = sorted_eigenvectors[:,0:principal_component_number] #slicing of first principil_component_number eigenvectors from sorted eigenvector matrix
     # transform
+
+    # TODO there is no return of this function. 
