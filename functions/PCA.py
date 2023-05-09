@@ -26,9 +26,3 @@ def pca(centered_img, prop_variance): #added input variable centered_img
     eigenvectors_pca = sorted_eigenvectors[:,0:propvar(prop_variance)] #slicing of first principil_component_number eigenvectors from sorted eigenvector matrix
     transformed_matrix_pca = np.dot(eigenvectors_pca.transpose(),centered_img.transpose()).transpose() # Transforming data with dot product of two arrays 
     return transformed_matrix_pca
-
-
-
-
-    # TODO there is no return of this function. 
-#covariance_matrix = np.cov(centered_img.reshape(::,-1), rowvar=False) #defining variable and creating covariance matrix while reshaping/flattening the images to obtain a 2D array, rowvar = False to compute cov matrix over rows, -1 means that the function calculates the required dimensions, so if the number of pictures is given it calculates the size 28x28 for each picture
