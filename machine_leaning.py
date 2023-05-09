@@ -30,7 +30,7 @@ def centering(Matrix):
     Matrix = Matrix.flatten()
     Matrix_c = Matrix - Matrix.mean()
     return Matrix_c 
-print(centering(img[[1]]))
+# print(centering(img[[1]]))
 
 
 #before continuing note that the np.cov() function has to be given a 1-Dimensional array, otherwise each row/column is considered a variable (and not each pixel as intended)
@@ -56,3 +56,12 @@ plt.show()"""
 #commit with text
 
 
+
+
+test = [[[1,1.2],[2,2.2]],[[3,3.2],[4,4.2]]]
+for a in range(0,2):
+    for b in range(0,2):
+        for c in range(0,2):
+            print(test[a][b][c])
+
+print(len(img.mean(axis=(1,2))))
