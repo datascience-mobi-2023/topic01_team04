@@ -8,10 +8,13 @@ def centered(): # 'centering ist ein python eigenname, das Python Modul wird hie
     return centered_img
 
 def pca(centered_img, prop_variance): #added input variable centered_img
-    covariance_matrix = np.cov(centered_img, rowvar=False) #defining variable and creating covariance matrix while reshaping/flattening the images to obtain a 2D array, rowvar = False to compute cov matrix over rows, -1 means that the function calculates the required dimensions, so if the number of pictures is given it calculates the size 28x28 for each picture
-    eigen_val , eigen_vec = np.linalg.eigh(covariance_matrix) #eigh function has two outputs, so two values have to be defined
+    centered_img = np.reshape(centered_img,(1,28*28))
+    covariance_matrix = np.cov(centered_img,rowvar=True) #defining variable and creating covariance matrix while reshaping/flattening the images to obtain a 2D array, rowvar = False to compute cov matrix over rows, -1 means that the function calculates the required dimensions, so if the number of pictures is given it calculates the size 28x28 for each picture
+    print(covariance_matrix.shape)
+    eigen_val , eigen_vec = np.linalg.eigh(covariance_matrix.reshape(1,28*28)) #eigh function has two outputs, so two values have to be defined
     sorted_index = np.argsort(eigen_val)[::-1] #gives indexes to sort array from lowes to highest and inverts this vector
     sorted_eigenvalue = eigen_val[sorted_index] #apply sorting to eigenvalues
+    print(sorted_eigenvalue)
     sorted_eigenvectors = eigen_vec[:,sorted_index] #apply sorting to eigenvectors, first coordinate (vertical axis) has to be : to select all rows
     def propvar(prop_var):
         sum = 0
