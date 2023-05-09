@@ -26,4 +26,5 @@ def pca(centered_img, prop_variance): #added input variable centered_img
     transformed_matrix_pca = np.dot(eigenvectors_pca.transpose(),centered_img.transpose()).transpose() # Transforming data with dot product of two arrays 
     return transformed_matrix_pca
 
+
     # TODO there is no return of this function. 
