@@ -33,7 +33,7 @@ num_img = pixel.shape[0]
 
 # subtracting mean of each pixel while keeping the dimensions of the images to center the images in preparation for PCA
 test = centered(img)
-
+print(test[0].shape)
 pca(test[0], 1)
 
 #defining variable and creating covariance matrix while reshaping/flattening the images to obtain a 2D array, rowvar = False to compute cov matrix over rows
