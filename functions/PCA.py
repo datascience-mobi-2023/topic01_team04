@@ -15,6 +15,6 @@ def pca(centered_img): #added input variable centered_img
     sorted_eigenvectors = eigen_vec[:,sorted_index] #apply sorting to eigenvectors, first coordinate (vertical axis) has to be : to select all rows
     principal_component_number = 4 #yeah science
     eigenvectors_pca = sorted_eigenvectors[:,0:principal_component_number] #slicing of first principil_component_number eigenvectors from sorted eigenvector matrix
-    # transform
+    # transform data
 
     # TODO there is no return of this function. 
