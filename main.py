@@ -8,6 +8,7 @@ import pandas as pnd
 import matplotlib.pyplot as plt
 
 from functions.PCA import pca
+from functions.PCA import centered
 
 # Import der Dateien 
 # ANMERKUNG: Funktioniert auch nur, wenn die Dateien in der SELBEN Directory wie das Skript sind -> Im Git-Ordner
@@ -31,8 +32,9 @@ num_img = pixel.shape[0]
 #    return Matrix_c 
 
 # subtracting mean of each pixel while keeping the dimensions of the images to center the images in preparation for PCA
-centered_img = img - img.mean(axis=(1,2), keepdims=True)
-pca(centered_img[0], 1)
+test = centered(img)
+
+pca(test[0], 1)
 
 #defining variable and creating covariance matrix while reshaping/flattening the images to obtain a 2D array, rowvar = False to compute cov matrix over rows
 covariance_matrix = np.cov(centered_img.reshape(num_img, -1), rowvar=False)
