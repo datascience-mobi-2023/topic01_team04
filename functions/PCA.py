@@ -3,7 +3,7 @@ import pandas as pnd
 import matplotlib.pyplot as plt
 #import main #No module named 'main'
 
-def centering():
+def centering(): # 'centering ist ein python eigenname, das Python Modul wird hiermit überschrieben. Das kann zu Problemen führen.'
     centered_img = img - img.mean(axis=(1,2), keepdims=True) #mean is calculated along 2nd and 3rd axis, meaning the heigth and the width of an image (remember: the first dimension is which picture we are looking at)
     return centered_img
 
@@ -13,6 +13,7 @@ def pca(centered_img,prop_variance): #added input variable centered_img
     sorted_index = np.argsort(eigen_val)[::-1] #gives indexes to sort array from lowes to highest and inverts this vector
     sorted_eigenvalue = eigen_val[sorted_index] #apply sorting to eigenvalues
     sorted_eigenvectors = eigen_vec[:,sorted_index] #apply sorting to eigenvectors, first coordinate (vertical axis) has to be : to select all rows
+<<<<<<< HEAD
     def propvar(prop_var):
         sum = 0
         sum_eigenvalues = sum(eigen_val)
@@ -24,3 +25,10 @@ def pca(centered_img,prop_variance): #added input variable centered_img
         return principal_component_number
     eigenvectors_pca = sorted_eigenvectors[:,0:propvar(prop_variance)] #slicing of first principil_component_number eigenvectors from sorted eigenvector matrix
     # transform data
+=======
+    principal_component_number = 4 #yeah science
+    eigenvectors_pca = sorted_eigenvectors[:,0:principal_component_number] #slicing of first principil_component_number eigenvectors from sorted eigenvector matrix
+    # transform data
+
+    # TODO there is no return of this function. 
+>>>>>>> 9f1606df33356121895e5ac133bf8efdd9933c7c
