@@ -26,3 +26,5 @@ def pca(centered_img, prop_variance): #added input variable centered_img
     eigenvectors_pca = sorted_eigenvectors[:,0:propvar(prop_variance)] #slicing of first principil_component_number eigenvectors from sorted eigenvector matrix
     transformed_matrix_pca = np.dot(eigenvectors_pca.transpose(),centered_img.transpose()).transpose() # Transforming data with dot product of two arrays 
     return transformed_matrix_pca
+
+    
