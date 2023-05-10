@@ -1,6 +1,8 @@
 import numpy as np
 import pandas as pnd
 import matplotlib.pyplot as plt
+ 
+
 
 def centered(img): #centering ist ein python eigenname, das Python Modul wird hiermit überschrieben. Das kann zu Problemen führen.
     centered_img = img - img.mean(axis=(1),keepdims=True) #mean is calculated along the horizontal axis
