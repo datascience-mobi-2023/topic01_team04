@@ -6,11 +6,12 @@
 import numpy as np
 import pandas as pnd
 import matplotlib.pyplot as plt
+import sklearn as skl
 
 from functions.PCA import pca
 from functions.PCA import centered
 from functions.KNN import dist
-
+from sklearn.decomposition import PCA
 # Import der Dateien 
 # ANMERKUNG: Funktioniert auch nur, wenn die Dateien in der SELBEN Directory wie das Skript sind -> Im Git-Ordner
 # Problem mit Git da CSV-Dateien zu groß sind um sie zu committen, sonst kann man gar nix mehr pushen 
@@ -31,6 +32,12 @@ testdata_centered = centered(testdata_pixel)
 traindata_pca, eigenmatrix = pca(traindata_centered,0.95)
 testdata_pca = np.dot(eigenmatrix.transpose(),testdata_centered.transpose()).transpose()
 
+sklearn_pca = PCA(n_components=222)
+sklearn_pca = sklearn_pca.fit(traindata_centered)
+sklearn_train = sklearn_pca.transform(traindata_centered)
+print(sklearn_train.shape)
+print(traindata_pca.shape)
+print(np.array_equal(sklearn_train,traindata_pca))
 
 """Wer sich die Bilder mal anschauen will:
 
