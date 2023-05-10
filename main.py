@@ -50,7 +50,7 @@ testdata_pca = np.dot(eigenmatrix.transpose(),testdata_centered.transpose()).tra
 k = input('whats k?: ')
 
 
-print(str(dist(pca(test, 0.9)[0], pca(test, 0.9)[0], k )))
+print(str(dist(pca(test, 0.9)[0], pca(test, 0.9)[0], k)))
 
 
 
