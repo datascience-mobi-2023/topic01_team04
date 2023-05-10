@@ -22,47 +22,14 @@ label = traindata['label'].to_numpy()
 
 a = np.indices((3,3)) #test matrix for centering
 
-#img = pixel.reshape((-1, 28*28)) #we don't need this code anymore i think?
+img = pixel.reshape((-1,28,28)) #only relevant for visualisation
 num_img = pixel.shape[0]
-#print(centered(a)) #centered works
 
-#function that returns a centered matrix as preparation for PCA
-#def centering(Matrix): 
-#    Matrix = Matrix.flatten()
-#    Matrix_c = Matrix - Matrix.mean()
-#    return Matrix_c 
 
 # subtracting mean of each pixel while keeping the dimensions of the images to center the images in preparation for PCA
 test = centered(pixel)
 print(test.shape)
 print(pca(test, 1).shape)
-
-#defining variable and creating covariance matrix while reshaping/flattening the images to obtain a 2D array, rowvar = False to compute cov matrix over rows
-#covariance_matrix = np.cov(centered_img.reshape(num_img, -1), rowvar=False)
-
-
-
-# Computing eigenvalues and eigenvectors of covariance matrix & printing for testing purposes
-eigen_val , eigen_vec = np.linalg.eigh(covariance_matrix)
-#%%
-print(eigen_val)
-print(eigen_vec)
-
-# Sorting Eigenvalues and Eigenvectors
-# get indices of sorted values, we need to add -1 to indicate that we want to sort in descending order
-sorted_index = np.argsort(eigen_val)[::-1]
- 
-sorted_eigenvalue = eigen_val[sorted_index]
-sorted_eigenvectors = eigen_vec[:,sorted_index]
-
-# Selecting a certain amount of PCs (OPTIMIZATION NEEDED!)
- 
-principal_component_number = 4
-eigenvectors_pca = sorted_eigenvectors[:,0:principal_component_number]
-
-# transforming data:
-
-
 
 """Wer sich die Bilder mal anschauen will:
 
