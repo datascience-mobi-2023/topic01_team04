@@ -3,8 +3,11 @@ import pandas as pnd
 import matplotlib.pyplot as plt
 
 
+#schleifen sind langsam wie sau, hier ist definitiv noch raum für improvement
+
 
 def dist(PCs_test,PCs_train,k):
+    final_result = [[]]
     for i in range(0,len(PCs_test)):
         
         result = []
@@ -14,7 +17,10 @@ def dist(PCs_test,PCs_train,k):
         #print(result)
         classes = np.argsort(result)
         class_k = classes[:int(k)]
-        print(class_k)
         
+        final_result = np.append(final_result, [[class_k]])
+
+        print(final_result)
+
     return class_k
 
