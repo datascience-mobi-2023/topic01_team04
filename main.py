@@ -30,15 +30,30 @@ num_img = pixel.shape[0]
 test = centered(pixel)
 
 
-print('shape of the training Data: ' + str(test.shape))
 i = False
-while i == False:
-    print('\n')
-    eiovar = input('type either eigenvector number or explained proportion of variance: ')
-    print('shape of the training PCA: ' + str(pca(test, float(eiovar))[0].shape))
-    if input('again?: ') == 'no':
-        i = True
-    
+inbud = input('1. test PCA\n2. test KNN: ')
+if  inbud == 1:
+    print('shape of the training Data: ' + str(test.shape))
+    i = False
+    while i == False:
+        print('\n')
+        
+        eiovar = input('type either eigenvector number or explained proportion of variance: ')
+        print('shape of the training PCA: ' + str(pca(test, float(eiovar))[0].shape))
+
+        if input('again?: ') == 'no':
+            i = True
+elif inbud == 2:
+    while i == False:
+        print('\n')
+
+        k = input('whats k?: ')
+        print(str(dist(pca(centered(testdata_pixel), 0.9)[0], pca(test, 0.9)[0], k)))
+
+        if input('again?: ') == 'no':
+            i = True
+
+
 
 
 traindata_centered = centered(pixel)
@@ -47,10 +62,6 @@ traindata_pca, eigenmatrix = pca(traindata_centered,0.95)
 testdata_pca = np.dot(eigenmatrix.transpose(),testdata_centered.transpose()).transpose()
 
 
-k = input('whats k?: ')
-
-
-print(str(dist(pca(test, 0.9)[0], pca(test, 0.9)[0], k)))
 
 
 

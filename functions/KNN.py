@@ -9,6 +9,6 @@ def dist(PCs_test,PCs_train,k):
         result = []
         for y in range(0,len(PCs_train)):
             result += [np.linalg.norm(PCs_test[i]-PCs_train[y])]
-            classes = np.argsort(result)[:k]
+            classes = np.argsort(result)[:int(k)]
             return classes
 
