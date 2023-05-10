@@ -49,7 +49,7 @@ elif inbud == 2: #Testing out the KNN-Method
         print('\n')
 
         k = input('whats k?: ')
-        print(str(dist(pca(centered(testdata_pixel), 100)[0], pca(test, 100)[0], k)))
+        print(str(dist(pca(centered(testdata_pixel), 10)[0], pca(test, 10)[0], k)))
 
         if input('again?: ') == 'no':
             i = True
