@@ -27,9 +27,11 @@ num_img = pixel.shape[0]
 
 
 # subtracting mean of each pixel while keeping the dimensions of the images to center the images in preparation for PCA
-test = centered(pixel)
-print(test.shape)
-print(pca(test, 10).shape)
+traindata_centered = centered(traindata)
+testdata_centered = centered(testdata)
+traindata_pca, eigenmatrix = pca(traindata_centered,0.95)
+testdata_pca = np.dot(eigenmatrix.transpose(),testdata_centered.transpose()).transpose()
+
 
 """Wer sich die Bilder mal anschauen will:
 
