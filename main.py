@@ -41,7 +41,7 @@ if  inbud == 1: #testing out to PCA
         
         eiovar = input('type either eigenvector number or explained proportion of variance: ')
         print('shape of the training PCA: ' + str(pca(test, float(eiovar))[0].shape))
-
+        
         if input('again?: ') == 'no':
             i = True
 elif inbud == 2: #Testing out the KNN-Method
