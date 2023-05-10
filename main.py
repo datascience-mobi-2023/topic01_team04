@@ -29,10 +29,11 @@ num_img = pixel.shape[0]
 # subtracting mean of each pixel while keeping the dimensions of the images to center the images in preparation for PCA
 test = centered(pixel)
 
-
+#gaining input for testing all the funktions:
 i = False
-inbud = input('1. test PCA\n2. test KNN: ')
-if  inbud == 1:
+inbud = int(input('1. test PCA\n2. test KNN: '))
+
+if  inbud == 1: #testing out to PCA
     print('shape of the training Data: ' + str(test.shape))
     i = False
     while i == False:
@@ -43,12 +44,12 @@ if  inbud == 1:
 
         if input('again?: ') == 'no':
             i = True
-elif inbud == 2:
+elif inbud == 2: #Testing out the KNN-Method
     while i == False:
         print('\n')
 
         k = input('whats k?: ')
-        print(str(dist(pca(centered(testdata_pixel), 0.9)[0], pca(test, 0.9)[0], k)))
+        print(str(dist(pca(centered(testdata_pixel), 100)[0], pca(test, 100)[0], k)))
 
         if input('again?: ') == 'no':
             i = True
@@ -56,10 +57,10 @@ elif inbud == 2:
 
 
 
-traindata_centered = centered(pixel)
-testdata_centered = centered(testdata_pixel)
-traindata_pca, eigenmatrix = pca(traindata_centered,0.95)
-testdata_pca = np.dot(eigenmatrix.transpose(),testdata_centered.transpose()).transpose()
+#traindata_centered = centered(pixel)
+#testdata_centered = centered(testdata_pixel)
+#traindata_pca, eigenmatrix = pca(traindata_centered,0.95)
+#testdata_pca = np.dot(eigenmatrix.transpose(),testdata_centered.transpose()).transpose()
 
 
 
