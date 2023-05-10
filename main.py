@@ -20,10 +20,11 @@ traindata = pnd.read_csv('fashion-mnist_train.csv')
 pixel = traindata.drop('label', axis=1).to_numpy()
 label = traindata['label'].to_numpy()
 
-    
+a = np.indices((3,3)) #test matrix for centering
 
-img = pixel.reshape((-1, 28, 28))
+#img = pixel.reshape((-1, 28*28)) #we don't need this code anymore i think?
 num_img = pixel.shape[0]
+#print(centered(a)) #centered works
 
 #function that returns a centered matrix as preparation for PCA
 #def centering(Matrix): 
@@ -32,17 +33,14 @@ num_img = pixel.shape[0]
 #    return Matrix_c 
 
 # subtracting mean of each pixel while keeping the dimensions of the images to center the images in preparation for PCA
-test = centered(img)
-print(test[0].shape)
-pca(test[0], 1)
+test = centered(pixel)
+print(test.shape)
+print(pca(test, 1).shape)
 
 #defining variable and creating covariance matrix while reshaping/flattening the images to obtain a 2D array, rowvar = False to compute cov matrix over rows
-covariance_matrix = np.cov(centered_img.reshape(num_img, -1), rowvar=False)
+#covariance_matrix = np.cov(centered_img.reshape(num_img, -1), rowvar=False)
 
-#%%
-# Printing for testing
-print(covariance_matrix)
-print(covariance_matrix.shape)
+
 
 # Computing eigenvalues and eigenvectors of covariance matrix & printing for testing purposes
 eigen_val , eigen_vec = np.linalg.eigh(covariance_matrix)
@@ -83,3 +81,10 @@ for i, ax in enumerate(axes.flat):
 
 plt.show()"""
 
+"""
+TO DO:  -reshape data into (-1,28*28)
+        -modify centering function
+        -modify cov matrix
+        -check cov matrix
+        -check if more modifications are needed
+"""
