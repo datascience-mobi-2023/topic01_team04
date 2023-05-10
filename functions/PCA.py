@@ -22,14 +22,16 @@ def pca(centered_img, prop_variance): #prop_variance can be used as input for pr
             if sum <= prop_var:
                 sum += (i/sum_eigenvalues)
                 principal_component_number += 1
-        print("Our eigenvectors explain " + str(sum) +" of total variance")
+        sum *= 100
+        print("Our eigenvectors explain " + str(sum) +" % of total variance")
         print(str(principal_component_number) + " eigenvectors are used")
         return principal_component_number
     if prop_variance <= 1:
         prop_variance = propvar(prop_variance)
     else:
-        print("Our eigenvectors explain " + str(np.sum(sorted_eigenvalue[0:prop_variance]) / np.sum(sorted_eigenvalue))+" of total variance")
-    eigenvectors_pca = sorted_eigenvectors[:,0:prop_variance] #slicing of first principil_component_number eigenvectors from sorted eigenvector matrix
+        yeeet = np.sum(sorted_eigenvalue[0:(int(prop_variance))]) / np.sum(sorted_eigenvalue) * 100
+        print("Our eigenvectors explain " + str(yeeet) + " % of total variance")
+    eigenvectors_pca = sorted_eigenvectors[:,0:int(prop_variance)] #slicing of first principil_component_number eigenvectors from sorted eigenvector matrix
     transformed_matrix_pca = np.dot(eigenvectors_pca.transpose(),centered_img.transpose()).transpose() # Transforming data with dot product of two arrays 
     return transformed_matrix_pca, eigenvectors_pca #returns eigenvectors to multiply with test data
 

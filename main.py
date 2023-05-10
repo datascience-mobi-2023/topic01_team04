@@ -12,6 +12,7 @@ from functions.PCA import pca
 from functions.PCA import centered
 from functions.KNN import dist
 from sklearn.decomposition import PCA
+print('\n')
 # Import der Dateien 
 # ANMERKUNG: Funktioniert auch nur, wenn die Dateien in der SELBEN Directory wie das Skript sind -> Im Git-Ordner
 # Problem mit Git da CSV-Dateien zu groß sind um sie zu committen, sonst kann man gar nix mehr pushen 
@@ -27,10 +28,43 @@ img = pixel.reshape((-1,28,28)) #only relevant for visualisation
 num_img = pixel.shape[0]
 
 # subtracting mean of each pixel while keeping the dimensions of the images to center the images in preparation for PCA
-traindata_centered = centered(pixel)
-testdata_centered = centered(testdata_pixel)
-traindata_pca, eigenmatrix = pca(traindata_centered,0.95)
-testdata_pca = np.dot(eigenmatrix.transpose(),testdata_centered.transpose()).transpose()
+test = centered(pixel)
+
+#gaining input for testing all the funktions:
+i = False
+inbud = int(input('1. test PCA\n2. test KNN: '))
+
+if  inbud == 1: #testing out to PCA
+    print('shape of the training Data: ' + str(test.shape))
+    i = False
+    while i == False:
+        print('\n')
+        
+        eiovar = input('type either eigenvector number or explained proportion of variance: ')
+        print('shape of the training PCA: ' + str(pca(test, float(eiovar))[0].shape))
+        
+        if input('again?: ') == 'no':
+            i = True
+elif inbud == 2: #Testing out the KNN-Method
+    while i == False:
+        print('\n')
+
+        k = input('whats k?: ')
+        print(str(dist(pca(centered(testdata_pixel), 10)[0], pca(test, 10)[0], k)))
+
+        if input('again?: ') == 'no':
+            i = True
+
+
+
+
+#traindata_centered = centered(pixel)
+#testdata_centered = centered(testdata_pixel)
+#traindata_pca, eigenmatrix = pca(traindata_centered,0.95)
+#testdata_pca = np.dot(eigenmatrix.transpose(),testdata_centered.transpose()).transpose()
+
+
+
 
 sklearn_pca = PCA(n_components=222)
 sklearn_pca = sklearn_pca.fit(traindata_centered)
