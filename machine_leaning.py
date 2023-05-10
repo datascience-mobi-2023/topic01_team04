@@ -57,11 +57,3 @@ plt.show()"""
 
 
 
-
-test = [[[1,1.2],[2,2.2]],[[3,3.2],[4,4.2]]]
-for a in range(0,2):
-    for b in range(0,2):
-        for c in range(0,2):
-            print(test[a][b][c])
-
-print(len(img.mean(axis=(1,2))))
