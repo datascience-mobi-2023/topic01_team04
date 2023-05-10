@@ -18,18 +18,16 @@ from functions.KNN import dist
 
 testdata = pnd.read_csv('fashion-mnist_test.csv')
 traindata = pnd.read_csv('fashion-mnist_train.csv')
+testdata_pixel = testdata.drop('label', axis=1).to_numpy()
 pixel = traindata.drop('label', axis=1).to_numpy()
 label = traindata['label'].to_numpy()
-
-a = np.indices((3,3)) #test matrix for centering
 
 img = pixel.reshape((-1,28,28)) #only relevant for visualisation
 num_img = pixel.shape[0]
 
-
 # subtracting mean of each pixel while keeping the dimensions of the images to center the images in preparation for PCA
-traindata_centered = centered(traindata)
-testdata_centered = centered(testdata)
+traindata_centered = centered(pixel)
+testdata_centered = centered(testdata_pixel)
 traindata_pca, eigenmatrix = pca(traindata_centered,0.95)
 testdata_pca = np.dot(eigenmatrix.transpose(),testdata_centered.transpose()).transpose()
 

@@ -3,7 +3,7 @@ import pandas as pnd
 import matplotlib.pyplot as plt
 
 def centered(img): #centering ist ein python eigenname, das Python Modul wird hiermit überschrieben. Das kann zu Problemen führen.
-    centered_img = img - img.mean(axis=(1), keepdims=True) #mean is calculated along the horizontal axis
+    centered_img = img - img.mean(axis=(1),keepdims=True) #mean is calculated along the horizontal axis
     return centered_img
 
 def pca(centered_img, prop_variance): #prop_variance can be used as input for proportion of variance OR number of eigenvalues
