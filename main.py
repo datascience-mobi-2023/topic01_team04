@@ -30,7 +30,7 @@ num_img = pixel.shape[0]
 # subtracting mean of each pixel while keeping the dimensions of the images to center the images in preparation for PCA
 test = centered(pixel)
 print(test.shape)
-print(pca(test, 1).shape)
+print(pca(test, 10).shape)
 
 """Wer sich die Bilder mal anschauen will:
 
