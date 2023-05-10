@@ -9,6 +9,7 @@ import matplotlib.pyplot as plt
 
 from functions.PCA import pca
 from functions.PCA import centered
+from functions.KNN import dist
 
 # Import der Dateien 
 # ANMERKUNG: Funktioniert auch nur, wenn die Dateien in der SELBEN Directory wie das Skript sind -> Im Git-Ordner
