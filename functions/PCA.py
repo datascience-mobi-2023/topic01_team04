@@ -20,7 +20,8 @@ def pca(centered_img, prop_variance): #prop_variance can be used as input for pr
             if sum <= prop_var:
                 sum += (i/sum_eigenvalues)
                 principal_component_number += 1
-        print("Our eigenvectors explain " + str(sum) +" of total variance")
+        sum *= 100
+        print("Our eigenvectors explain " + str(sum) +" % of total variance")
         print(str(principal_component_number) + " eigenvectors are used")
         return principal_component_number
     if prop_variance <= 1:

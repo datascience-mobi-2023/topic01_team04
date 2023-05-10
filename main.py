@@ -11,6 +11,7 @@ from functions.PCA import pca
 from functions.PCA import centered
 from functions.KNN import dist
 
+print('\n')
 # Import der Dateien 
 # ANMERKUNG: Funktioniert auch nur, wenn die Dateien in der SELBEN Directory wie das Skript sind -> Im Git-Ordner
 # Problem mit Git da CSV-Dateien zu groß sind um sie zu committen, sonst kann man gar nix mehr pushen 
@@ -29,8 +30,10 @@ num_img = pixel.shape[0]
 
 # subtracting mean of each pixel while keeping the dimensions of the images to center the images in preparation for PCA
 test = centered(pixel)
-print(test.shape)
-print(pca(test, 10).shape)
+
+eiovar = input('type either eigenvector number or explained proportion of variance: ')
+print('shape of the training Data: ' + str(test.shape))
+print('shape of the training PCA: ' + str(pca(test, float(eiovar))[0].shape))
 
 """Wer sich die Bilder mal anschauen will:
 
