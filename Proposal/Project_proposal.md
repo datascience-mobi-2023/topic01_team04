@@ -26,3 +26,8 @@ Fashion MNIST dataset
 - Implementation von CNN (optional)
 - Report
 - Finale Präsi
+
+## Evaluationsmethoden
+- Welche Metriken? 
+    - Accuracy, Specificity... Confusion Matrix (Verwechslung)
+    
