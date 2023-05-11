@@ -7,20 +7,21 @@ import matplotlib.pyplot as plt
 
 
 def dist(PCs_test,PCs_train,k):
-    final_result = [[]]
+    k = int(k)
+    final_result = np.zeros((len(PCs_test),k),dtype=np.int8)
     for i in range(0,len(PCs_test)):
         
-        result = []
+        result = np.array([],dtype=np.int8)
         for y in range(0,len(PCs_train)):
             result = np.append(result, [np.linalg.norm(PCs_test[i]-PCs_train[y])])
 
         #print(result)
-        classes = np.argsort(result)
-        class_k = classes[:int(k)]
+        class_k = np.argsort(result)[:k]
         
-        final_result = np.append(final_result, [[class_k]])
+        
+        final_result[i] = class_k
 
         print(final_result)
-
+        print('\n')
     return class_k
 

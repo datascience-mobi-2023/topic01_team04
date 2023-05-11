@@ -24,6 +24,7 @@ testdata_pixel = testdata.drop('label', axis=1).to_numpy()
 pixel = traindata.drop('label', axis=1).to_numpy()
 label = traindata['label'].to_numpy()
 
+
 img = pixel.reshape((-1,28,28)) #only relevant for visualisation
 num_img = pixel.shape[0]
 
@@ -57,11 +58,11 @@ elif inbud == 2: #Testing out the KNN-Method
 
 
 
-
-#traindata_centered = centered(pixel)
-#testdata_centered = centered(testdata_pixel)
-#traindata_pca, eigenmatrix = pca(traindata_centered,0.95)
-#testdata_pca = np.dot(eigenmatrix.transpose(),testdata_centered.transpose()).transpose()
+"""
+traindata_centered = centered(pixel)
+testdata_centered = centered(testdata_pixel)
+traindata_pca, eigenmatrix = pca(traindata_centered,0.95)
+testdata_pca = np.dot(eigenmatrix.transpose(),testdata_centered.transpose()).transpose()
 
 
 
@@ -73,6 +74,7 @@ print(sklearn_train.shape)
 print(traindata_pca.shape)
 print(np.array_equal(sklearn_train,traindata_pca))
 
+"""
 """Wer sich die Bilder mal anschauen will:
 
 anz_img = len(img)
