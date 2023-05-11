@@ -1,6 +1,7 @@
 import numpy as np
 import pandas as pnd
 import matplotlib.pyplot as plt
+from collections import Counter
 
 
 #schleifen sind langsam wie sau, hier ist definitiv noch raum für improvement
@@ -52,11 +53,20 @@ def dist(PCs_test, PCs_train, k):
 
 
 def labl(item_numbers_of_most_similar_pics,label):
+    """
+    Calculates the labels of the item numbers that were previously described as the closest ones.
+    """
     item = item_numbers_of_most_similar_pics
     labls = label[item]
 
     return labls
 
-
+def most_common_items(arr):
+    result = []
+    for subarr in arr:
+        data = Counter(subarr)
+        most_common_item = data.most_common(1)[0][0]
+        result.append(most_common_item)
+    return result
 
 
