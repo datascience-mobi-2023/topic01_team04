@@ -6,11 +6,12 @@
 import numpy as np
 import pandas as pnd
 import matplotlib.pyplot as plt
+import sklearn as skl
 
 from functions.PCA import pca
 from functions.PCA import centered
 from functions.KNN import dist
-
+from sklearn.decomposition import PCA
 print('\n')
 # Import der Dateien 
 # ANMERKUNG: Funktioniert auch nur, wenn die Dateien in der SELBEN Directory wie das Skript sind -> Im Git-Ordner
@@ -65,6 +66,12 @@ elif inbud == 2: #Testing out the KNN-Method
 
 
 
+sklearn_pca = PCA(n_components=222)
+sklearn_pca = sklearn_pca.fit(traindata_centered)
+sklearn_train = sklearn_pca.transform(traindata_centered)
+print(sklearn_train.shape)
+print(traindata_pca.shape)
+print(np.array_equal(sklearn_train,traindata_pca))
 
 """Wer sich die Bilder mal anschauen will:
 
