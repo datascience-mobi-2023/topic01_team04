@@ -12,6 +12,7 @@ PCA funktioniert nicht richtig, Ergebnis deckt sich nicht mit sklearn Ergebnis
 Project proposal: 
 - Was genau an Grundlagen müssen erklärt werden?
 - Wie viel an unserem eigenen Code müssen wir erklären im PP?
+- KNN priorisieren (Da Hauptteil vom Projekt) 
 
 
 Project proposal: 
