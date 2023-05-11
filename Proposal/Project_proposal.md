@@ -16,6 +16,7 @@ Fashion MNIST dataset
 - Wie finden wir optimales k?
 
 ## Was ist bereits geschafft, was müssen wir noch machen?
+- In die Timeline evtl. Namen und Aufgabenverteilung integrieren
 - Mit Daten vertraut machen
 - Was sind PCAs, was ist KNN? 
 - PP
@@ -30,4 +31,3 @@ Fashion MNIST dataset
 ## Evaluationsmethoden
 - Welche Metriken? 
     - Accuracy, Specificity... Confusion Matrix (Verwechslung)
-    
