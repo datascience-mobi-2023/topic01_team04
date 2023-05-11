@@ -8,10 +8,10 @@ import matplotlib.pyplot as plt
 
 def dist(PCs_test,PCs_train,k):
     k = int(k)
-    final_result = np.zeros((len(PCs_test),k),dtype=np.int8)
+    final_result = np.zeros((len(PCs_test),k))
     for i in range(0,len(PCs_test)):
         
-        result = np.array([],dtype=np.int8)
+        result = np.array([])
         for y in range(0,len(PCs_train)):
             result = np.append(result, [np.linalg.norm(PCs_test[i]-PCs_train[y])])
         
