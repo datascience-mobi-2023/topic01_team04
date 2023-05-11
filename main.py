@@ -11,6 +11,7 @@ import sklearn as skl
 from functions.PCA import pca
 from functions.PCA import centered
 from functions.KNN import dist
+from functions.KNN import labl
 from sklearn.decomposition import PCA
 print('\n')
 # Import der Dateien 
@@ -23,6 +24,7 @@ traindata = pnd.read_csv('fashion-mnist_train.csv')
 testdata_pixel = testdata.drop('label', axis=1).to_numpy()
 pixel = traindata.drop('label', axis=1).to_numpy()
 label = traindata['label'].to_numpy()
+label_test = testdata['label'].to_numpy()
 
 
 img = pixel.reshape((-1,28,28)) #only relevant for visualisation
@@ -51,7 +53,10 @@ elif inbud == 2: #Testing out the KNN-Method
         print('\n')
 
         k = input('whats k?: ')
-        print(str(dist(pca(centered(testdata_pixel), 10)[0], pca(test, 10)[0], k)))
+        item_numbers_of_most_similar_pics = dist(pca(centered(testdata_pixel), 10)[0], pca(test, 10)[0], k)
+        
+        print(str(labl(item_numbers_of_most_similar_pics, label)))
+        print(str(label_test[:10]))
 
         if input('again?: ') == 'no':
             i = True

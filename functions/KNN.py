@@ -5,7 +5,7 @@ import matplotlib.pyplot as plt
 
 #schleifen sind langsam wie sau, hier ist definitiv noch raum für improvement
 
-
+""" Orginal
 def dist(PCs_test,PCs_train,k):
     k = int(k)
     final_result = np.zeros((len(PCs_test),k))
@@ -26,4 +26,37 @@ def dist(PCs_test,PCs_train,k):
         print(final_result)
         print('\n')
     return class_k
+"""
+
+
+
+def dist(PCs_test, PCs_train, k):
+    """
+    Calculates the k-nearest neighbors of the test data based on the training data.
+    
+    Parameters:
+    PCs_test (numpy array): The test data matrix with shape (n_test_samples, n_features).
+    PCs_train (numpy array): The training data matrix with shape (n_train_samples, n_features).
+    k (int): The number of nearest neighbors to consider.
+    
+    Returns:
+    numpy array: An array of shape (n_test_samples, k) containing the indices of the k-nearest neighbors for each test sample.
+    """
+    k = int(k)
+    n_test_samples = len(PCs_test)
+    n_train_samples = len(PCs_train)
+    distances = np.linalg.norm(PCs_test[:10, None] - PCs_train, axis=2)
+    item_numbers_of_most_similar_pics = np.argpartition(distances, kth=k-1, axis=1)[:, :k]
+
+    return item_numbers_of_most_similar_pics
+
+
+def labl(item_numbers_of_most_similar_pics,label):
+    item = item_numbers_of_most_similar_pics
+    labls = label[item]
+
+    return labls
+
+
+
 
