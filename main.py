@@ -12,6 +12,8 @@ from functions.PCA import pca
 from functions.PCA import centered
 from functions.KNN import dist
 from functions.KNN import labl
+from functions.KNN import most_common_items
+
 from sklearn.decomposition import PCA
 print('\n')
 # Import der Dateien 
@@ -55,8 +57,9 @@ elif inbud == 2: #Testing out the KNN-Method
         k = input('whats k?: ')
         item_numbers_of_most_similar_pics = dist(pca(centered(testdata_pixel), 10)[0], pca(test, 10)[0], k)
         
-        print(str(labl(item_numbers_of_most_similar_pics, label)))
+        print(str(most_common_items(labl(item_numbers_of_most_similar_pics,label))))
         print(str(label_test[:10]))
+        
 
         if input('again?: ') == 'no':
             i = True
