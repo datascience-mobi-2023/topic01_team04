@@ -17,3 +17,9 @@ Project Proposal:
 - KNN priorisieren
 - PCA kurz halten
 - Timeline & Aufgabenteilung
+
+
+
+um Chaos beim coden zu vermeiden: 
+gitignore nutzen oder in versch branches 
+lieber 1-2 Personen pro Funktion & dann erklärt man es sich gegenseitig
