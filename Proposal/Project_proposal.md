@@ -31,3 +31,7 @@ Fashion MNIST dataset
 ## Evaluationsmethoden
 - Welche Metriken? 
     - Accuracy, Specificity... Confusion Matrix (Verwechslung)
+
+## Link zur PPP:
+
+https://docs.google.com/presentation/d/1z_QNWF_XVQozLRCbe5V8P-gy0UfbYjYY/edit?usp=sharing&ouid=109709609788655258513&rtpof=true&sd=true
