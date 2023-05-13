@@ -24,21 +24,21 @@ print('\n')
 testdata = pnd.read_csv('fashion-mnist_test.csv')
 traindata = pnd.read_csv('fashion-mnist_train.csv')
 testdata_pixel = testdata.drop('label', axis=1).to_numpy()
-pixel = traindata.drop('label', axis=1).to_numpy()
-label = traindata['label'].to_numpy()
+traindata_pixel = traindata.drop('label', axis=1).to_numpy()
+label_train = traindata['label'].to_numpy()
 label_test = testdata['label'].to_numpy()
 
 
-img = pixel.reshape((-1,28,28)) #only relevant for visualisation
-num_img = pixel.shape[0]
+img = traindata_pixel.reshape((-1,28,28)) #only relevant for visualisation
+num_img = traindata_pixel.shape[0]
 
 # subtracting mean of each pixel while keeping the dimensions of the images to center the images in preparation for PCA
-test = centered(pixel)
+test = centered(traindata_pixel)
 
 #gaining input for testing all the funktions:
 i = False
-inbud = int(input('1. test PCA\n2. test KNN: '))
-
+ = int(input('1. test PCA\n2. test KNN: '))
+match inbud
 if  inbud == 1: #testing out to PCA
     print('shape of the training Data: ' + str(test.shape))
     i = False
