@@ -67,6 +67,7 @@ def most_common_items(arr):
         data = Counter(subarr)
         most_common_item = data.most_common(1)[0][0]
         result.append(most_common_item)
+    result = np.array(result)
     return result
 
 
