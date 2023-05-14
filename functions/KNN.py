@@ -71,3 +71,10 @@ def most_common_items(arr):
     return result
 
 
+def quality(orginal, result):
+    fal = 0
+    for i in range(0,len(orginal)):
+        if orginal[i] != result[i]:
+            fal += 1
+    false_quote = fal/len(orginal)
+    return false_quote

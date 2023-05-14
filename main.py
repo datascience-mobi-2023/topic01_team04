@@ -13,6 +13,7 @@ from functions.PCA import centered
 from functions.KNN import dist
 from functions.KNN import labl
 from functions.KNN import most_common_items
+from functions.KNN import quality
 
 from sklearn.decomposition import PCA
 print('\n')
@@ -59,7 +60,7 @@ elif inbud == 2: #Testing out the KNN-Method
         
         print(str(most_common_items(labl(item_numbers_of_most_similar_pics,label))))
         print(str(label_test[:10]))
-        
+        print(str(quality(label_test[:10], most_common_items(labl(item_numbers_of_most_similar_pics,label)))))
 
         if input('again?: ') == 'no':
             i = True
