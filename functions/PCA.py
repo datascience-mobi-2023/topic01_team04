@@ -2,14 +2,48 @@ import numpy as np
 import pandas as pnd
 import matplotlib.pyplot as plt
  
+def sd0(img):
+    """
+    finds all pixels where the computed sd is 0 as to not divide by 0
+    """
+    sd = np.std(img, axis=0)
+    zero_sd_pixels = np.where(sd == 0)
+    return zero_sd_pixels
 
+def deletesd0(img, zero_sd_pixels): 
+    """
+    deletes all pixels where sd = 0
+    """
+    train_img_del = np.delete(img, zero_sd_pixels, axis=1)
+    return train_img_del
 
-def centered(img): #centering ist ein python eigenname, das Python Modul wird hiermit überschrieben. Das kann zu Problemen führen.
-    centered_img = img - img.mean(axis=(1),keepdims=True) #mean is calculated along the horizontal axis
-    return centered_img
+def cleansd0(img, zero_sd_pixels):
+    train_img_cleaned = deletesd0(img, zero_sd_pixels)
+    return train_img_cleaned
+    
+def ztransform(train_img_cleaned):
+    """
+    Args: 
+        :param img: Centers and scales img
+    Returns: 
+        z_img
+        """
+    z_transformed = (train_img_cleaned - train_img_cleaned.mean(axis=(1), keepdims=True))/np.std(train_img_cleaned, axis=0)
+    return z_transformed
 
-def pca(centered_img, prop_variance): #prop_variance can be used as input for proportion of variance OR number of eigenvalues
-    covariance_matrix = np.cov(centered_img, rowvar=False) #covariance matrix, as each column is a variable we need rowvar=False
+'''def centered(img): 
+    """
+    Args:
+        :param img: Centers img by subtracting mean
+
+    Returns:
+        centered_img
+    """
+    centered_img = img - img.mean(axis=(1),keepdims=True) 
+    return centered_img'''
+
+def pca(z_transformed, prop_variance): #prop_variance can be used as input for proportion of variance OR number of eigenvalues
+    covariance_matrix = np.cov(z_transformed, rowvar=False) #covariance matrix, as each column is a variable we need rowvar=False
     print(covariance_matrix.shape)
     eigen_val , eigen_vec = np.linalg.eigh(covariance_matrix) #eigh function has two outputs, so two values have to be defined
     sorted_index = np.argsort(eigen_val)[::-1] #gives indexes to sort array from lowes to highest and inverts this vector
@@ -33,7 +67,7 @@ def pca(centered_img, prop_variance): #prop_variance can be used as input for pr
         percent_prop = np.sum(sorted_eigenvalue[0:(int(prop_variance))]) / np.sum(sorted_eigenvalue) * 100
         print("Our eigenvectors explain " + str(percent_prop) + " % of total variance")
     eigenvectors_pca = sorted_eigenvectors[:,:int(prop_variance)] #slicing of first principil_component_number eigenvectors from sorted eigenvector matrix
-    transformed_matrix_pca = np.dot(eigenvectors_pca.transpose(),centered_img.transpose()).transpose() # Transforming data with dot product of two arrays 
+    transformed_matrix_pca = np.dot(eigenvectors_pca.transpose(),z_transformed.transpose()).transpose() # Transforming data with dot product of two arrays 
     return transformed_matrix_pca, eigenvectors_pca #returns eigenvectors to multiply with test data
 
 def custum_imshow(img):
