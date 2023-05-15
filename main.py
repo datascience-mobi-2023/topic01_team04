@@ -34,7 +34,7 @@ img = traindata_pixel.reshape((-1,28,28)) #only relevant for visualisation
 num_img = traindata_pixel.shape[0]
 
 # subtracting mean of each pixel while keeping the dimensions of the images to center the images in preparation for PCA
-test = centered(traindata_pixel)
+traindata_centered = centered(traindata_pixel)
 
 #gaining input for testing all the funktions:
 i = False
@@ -65,3 +65,9 @@ elif inbud == 2: #Testing out the KNN-Method
         if input('again?: ') == 'no':
             i = True
 
+def parameter_input():
+    choice = int(input('1. test PCA\n2. test KNN: '))
+    match choice:
+        case 1:
+            print('shape of the training Data: ' + str(traindata_centered.shape))
+        case 2:
