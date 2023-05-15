@@ -38,8 +38,8 @@ test = centered(traindata_pixel)
 
 #gaining input for testing all the funktions:
 i = False
- = int(input('1. test PCA\n2. test KNN: '))
-match inbud
+inbud = int(input('1. test PCA\n2. test KNN: '))
+#match inbud (was passiert hier? syntax hat nicht funktioniert)
 if  inbud == 1: #testing out to PCA
     print('shape of the training Data: ' + str(test.shape))
     i = False
