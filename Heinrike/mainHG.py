@@ -35,6 +35,10 @@ num_img = pixel.shape[0]
 # subtracting mean of each pixel while keeping the dimensions of the images to center the images in preparation for PCA
 test = centered(pixel)
 
+# print one of the images
+shape.num_img
+
+
 #gaining input for testing all the funktions:
 i = False
 inbud = int(input('1. test PCA\n2. test KNN: '))
