@@ -5,3 +5,11 @@ __all__ = [
     pca,
     centered
 ]
+from functions.KNN import dist, labl, most_common_items, quality
+__all__ = [
+    dist, 
+    labl, 
+    most_common_items, 
+    quality
+    
+]
