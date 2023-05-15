@@ -6,28 +6,7 @@ from collections import Counter
 
 #schleifen sind langsam wie sau, hier ist definitiv noch raum für improvement
 
-""" Orginal
-def dist(PCs_test,PCs_train,k):
-    k = int(k)
-    final_result = np.zeros((len(PCs_test),k))
-    for i in range(0,len(PCs_test)):
-        
-        result = np.array([])
-        for y in range(0,len(PCs_train)):
-            result = np.append(result, [np.linalg.norm(PCs_test[i]-PCs_train[y])])
-        
-        class_k = np.argsort(result)[:k]
-        print(result[class_k])
-        print(result.shape)
-        
-        
-        
-        final_result[i] = class_k
 
-        print(final_result)
-        print('\n')
-    return class_k
-"""
 
 
 
@@ -67,6 +46,14 @@ def most_common_items(arr):
         data = Counter(subarr)
         most_common_item = data.most_common(1)[0][0]
         result.append(most_common_item)
+    result = np.array(result)
     return result
 
 
+def quality(orginal, result):
+    fal = 0
+    for i in range(0,len(orginal)):
+        if orginal[i] != result[i]:
+            fal += 1
+    false_quote = fal/len(orginal)
+    return false_quote

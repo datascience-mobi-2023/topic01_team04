@@ -35,3 +35,11 @@ Fashion MNIST dataset
 ## Link zur PPP:
 
 https://docs.google.com/presentation/d/1z_QNWF_XVQozLRCbe5V8P-gy0UfbYjYY/edit?usp=sharing&ouid=109709609788655258513&rtpof=true&sd=true
+
+## ToDo Montag
+- Wieso kein Scaling? 
+- prints von unserem Dataset einfügen
+- In welchem Detail KNN erklären?
+- Evaluation methods festlegen & kurz anschneiden
+- In welchem Detail CNN erklären?
+- bei Timeline Namen dazu? 

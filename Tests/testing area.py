@@ -29,3 +29,9 @@ print(distance(test,test2))
 
 # rotations Matrix ist universell anwendbar, also auch auf testdatensatz
 
+"""def parameter_input():
+    choice = int(input('1. test PCA\n2. test KNN: '))
+    match choice:
+        case 1:
+            print('shape of the training Data: ' + str(test.shape))
+        case 2:"""
