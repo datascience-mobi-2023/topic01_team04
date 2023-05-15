@@ -29,6 +29,8 @@ label_test = testdata['label'].to_numpy()
 img = traindata_pixel.reshape((-1,28,28)) #only relevant for visualisation
 num_img = traindata_pixel.shape[0]
 
+
+
 # subtracting mean of each pixel while keeping the dimensions of the images to center the images in preparation for PCA
 traindata_centered = centered(traindata_pixel)
 
@@ -56,5 +58,3 @@ elif choice == 2: #Testing out the KNN-Method
             i = True
 
     
-
-
