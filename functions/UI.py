@@ -1,7 +1,19 @@
 
-from PCA import pca, custum_imshow, centered
-from KNN import dist, quality, most_common_items, labl
+from functions.PCA import pca, custum_imshow, centered
+from functions.KNN import dist, quality, most_common_items, labl
 
+
+import numpy as np
+import pandas as pnd
+import matplotlib.pyplot as plt
+import sklearn as skl
+
+testdata = pnd.read_csv('fashion-mnist_test.csv')
+traindata = pnd.read_csv('fashion-mnist_train.csv')
+testdata_pixel = testdata.drop('label', axis=1).to_numpy()
+traindata_pixel = traindata.drop('label', axis=1).to_numpy()
+label_train = traindata['label'].to_numpy()
+label_test = testdata['label'].to_numpy()
 
 
 def testfunction():
@@ -21,9 +33,9 @@ def testfunction():
         while i == False:
             print('\n')
             k = input('whats k?: ')
-            item_numbers_of_most_similar_pics = dist(pca(centered(testdata_pixel), 10)[0], pca(test, 10)[0], k)
-            print(str(most_common_items(labl(item_numbers_of_most_similar_pics,label))))
+            item_numbers_of_most_similar_pics = dist(pca(centered(testdata_pixel), 10)[0], pca(traindata_pixel, 10)[0], k)
+            print(str(most_common_items(labl(item_numbers_of_most_similar_pics,label_train))))
             print(str(label_test[:10]))
-            print(str(quality(label_test[:10], most_common_items(labl(item_numbers_of_most_similar_pics,label)))))
+            print(str(quality(label_test[:10], most_common_items(labl(item_numbers_of_most_similar_pics,label_train)))))
             if input('again? y/n: ') == 'n':
                 i = True

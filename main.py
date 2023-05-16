@@ -11,7 +11,7 @@ import sklearn as skl
 from functions.PCA import pca, custum_imshow, centered
 from functions.KNN import dist, quality, most_common_items, labl
 from functions.UI import testfunction
-from Tests.BastisBescheurteBastelecke import testallzeros
+#from Tests.BastisBescheurteBastelecke import testallzeros
 
 from sklearn.decomposition import PCA
 print('\n')
