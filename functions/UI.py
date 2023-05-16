@@ -39,3 +39,19 @@ def testfunction():
             print(str(quality(label_test[:10], most_common_items(labl(item_numbers_of_most_similar_pics,label_train)))))
             if input('again? y/n: ') == 'n':
                 i = True
+
+
+def test_a_value(value):
+    try:
+        print(type(value))
+    except:
+        print()
+
+    try:
+        print('valueshape:\n' + str(value.shape))
+    except:
+        print('no shape')
+    try:
+        print('value:\n' + str(value))
+    except:
+        print()

@@ -10,7 +10,7 @@ import sklearn as skl
 
 from functions.PCA import pca, custum_imshow, centered
 from functions.KNN import dist, quality, most_common_items, labl
-from functions.UI import testfunction
+from functions.UI import *
 from Tests.BastisBescheuerteBastelecke import testallzeros
 
 from sklearn.decomposition import PCA
@@ -31,9 +31,7 @@ label_test = testdata['label'].to_numpy()
 img = traindata_pixel.reshape((-1,28,28)) #only relevant for visualisation
 num_img = traindata_pixel.shape[0]
 
-
-testfunction()
-
+test_a_value(label_test)
 """
 # subtracting mean of each pixel while keeping the dimensions of the images to center the images in preparation for PCA
 traindata_centered = centered(traindata_pixel)

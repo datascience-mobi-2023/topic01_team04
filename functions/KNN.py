@@ -16,8 +16,6 @@ def dist(PCs_test, PCs_train, k):
     numpy array: An array of shape (n_test_samples, k) containing the indices of the k-nearest neighbors for each test sample.
     """
     k = int(k)
-    n_test_samples = len(PCs_test)
-    n_train_samples = len(PCs_train)
     distances = np.linalg.norm(PCs_test[:10, None] - PCs_train, axis=2)
     item_numbers_of_most_similar_pics = np.argpartition(distances, kth=k-1, axis=1)[:, :k]
 
