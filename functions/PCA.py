@@ -8,6 +8,29 @@ def centered(img): #centering ist ein python eigenname, das Python Modul wird hi
     centered_img = img - img.mean(axis=(1),keepdims=True) #mean is calculated along the horizontal axis
     return centered_img
 
+
+def propvar(prop_var): 
+    """Adds eigenvalues until desired proportion of variance is reached
+
+    Args:
+        prop_var (float): desired proportion of variance
+
+    Returns:
+        int: numper of principal comonents
+    """
+    sum = 0
+    sum_eigenvalues = np.sum(eigen_val)
+    principal_component_number = 0
+    for i in sorted_eigenvalue:
+        if sum < prop_var:
+            sum += (i/sum_eigenvalues)
+            principal_component_number += 1
+    sum *= 100
+    print("Our eigenvectors explain " + str(sum) +" % of total variance")
+    print(str(principal_component_number) + " eigenvectors are used")
+    return principal_component_number
+
+
 def pca(centered_img, prop_variance): #prop_variance can be used as input for proportion of variance OR number of eigenvalues
     covariance_matrix = np.cov(centered_img, rowvar=False) #covariance matrix, as each column is a variable we need rowvar=False
     print(covariance_matrix.shape)
@@ -15,18 +38,6 @@ def pca(centered_img, prop_variance): #prop_variance can be used as input for pr
     sorted_index = np.argsort(eigen_val)[::-1] #gives indexes to sort array from lowes to highest and inverts this vector
     sorted_eigenvalue = eigen_val[sorted_index] #apply sorting to eigenvalues
     sorted_eigenvectors = eigen_vec[:,sorted_index] #apply sorting to eigenvectors, first coordinate (vertical axis) has to be : to select all rows
-    def propvar(prop_var): #adds eigenvalues until desired proportion of variance is reached
-        sum = 0
-        sum_eigenvalues = np.sum(eigen_val)
-        principal_component_number = 0
-        for i in sorted_eigenvalue:
-            if sum < prop_var:
-                sum += (i/sum_eigenvalues)
-                principal_component_number += 1
-        sum *= 100
-        print("Our eigenvectors explain " + str(sum) +" % of total variance")
-        print(str(principal_component_number) + " eigenvectors are used")
-        return principal_component_number
     if prop_variance <= 1:
         prop_variance = propvar(prop_variance)
     else:
