@@ -45,8 +45,8 @@ def custum_imshow(img):
     anz_img = len(img)
     rows = int(np.sqrt(anz_img))
     cols = int(np.ceil(anz_img / rows))
-    rows = np.minimum(rows, 20)
-    cols = np.minimum(cols, 20)
+    rows = np.minimum(rows, 1)
+    cols = np.minimum(cols, 1)
     fig, axes = plt.subplots(rows, cols, figsize=(10, 10))
     for i, ax in enumerate(axes.flat):
         if i < anz_img:
@@ -55,7 +55,4 @@ def custum_imshow(img):
         else:
             ax.set_axis_off()
     plt.show()
-    
-
-
-    
+    plt.show()

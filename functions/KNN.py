@@ -35,8 +35,7 @@ def labl(item_numbers_of_most_similar_pics,label):
     """
     Calculates the labels of the item numbers that were previously described as the closest ones.
     """
-    item = item_numbers_of_most_similar_pics
-    labls = label[item]
+    labls = label[item_numbers_of_most_similar_pics]
 
     return labls
 
