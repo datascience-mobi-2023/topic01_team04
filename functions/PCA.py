@@ -66,3 +66,4 @@ def custum_imshow(img):
         else:
             ax.set_axis_off()
     plt.show()
+    plt.show()

@@ -3,13 +3,6 @@ import pandas as pnd
 import matplotlib.pyplot as plt
 from collections import Counter
 
-
-#schleifen sind langsam wie sau, hier ist definitiv noch raum für improvement
-
-
-
-
-
 def dist(PCs_test, PCs_train, k):
     """
     Calculates the k-nearest neighbors of the test data based on the training data.

@@ -10,6 +10,7 @@ import sklearn as skl
 
 from functions.PCA import pca, custum_imshow, centered
 from functions.KNN import dist, quality, most_common_items, labl
+from functions.UI import testfunction
 from Tests.BastisBescheurteBastelecke import testallzeros
 
 from sklearn.decomposition import PCA
@@ -32,7 +33,10 @@ num_img = traindata_pixel.shape[0]
 
 # subtracting mean of each pixel while keeping the dimensions of the images to center the images in preparation for PCA
 traindata_centered = centered(traindata_pixel)
-print(testallzeros(testdata_pixel))
+
+testfunction()
+
+"""
 #gaining input for testing all the functions:
 def testfunction(traindata_centered):
     i = False
@@ -57,5 +61,5 @@ def testfunction(traindata_centered):
             if input('again? y/n: ') == 'n':
                 i = True
 
-    
+"""
 
