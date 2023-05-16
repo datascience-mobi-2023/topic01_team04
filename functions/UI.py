@@ -1,4 +1,4 @@
-sys.path
+#sys.path
 from functions.PCA import pca, custum_imshow, centered
 from functions.KNN import dist, quality, most_common_items, labl
 
