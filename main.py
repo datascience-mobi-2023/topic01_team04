@@ -8,8 +8,9 @@ import pandas as pnd
 import matplotlib.pyplot as plt
 import sklearn as skl
 
-from functions.PCA import pca, custum_imshow, centered, testfunction
+from functions.PCA import pca, custum_imshow, centered
 from functions.KNN import dist, quality, most_common_items, labl
+from Tests.BastisBescheurteBastelecke import testallzeros
 
 from sklearn.decomposition import PCA
 print('\n')
@@ -29,13 +30,11 @@ label_test = testdata['label'].to_numpy()
 img = traindata_pixel.reshape((-1,28,28)) #only relevant for visualisation
 num_img = traindata_pixel.shape[0]
 
-
-
 # subtracting mean of each pixel while keeping the dimensions of the images to center the images in preparation for PCA
 traindata_centered = centered(traindata_pixel)
-
+print(testallzeros(testdata_pixel))
 #gaining input for testing all the functions:
-def testfunction(traindata_centered)
+def testfunction(traindata_centered):
     i = False
     choice = int(input('1. test PCA\n2. test KNN: '))
     #match inbud (was passiert hier? syntax hat nicht funktioniert)
