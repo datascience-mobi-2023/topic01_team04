@@ -31,6 +31,7 @@ label_test = testdata['label'].to_numpy()
 img = traindata_pixel.reshape((-1,28,28)) #only relevant for visualisation
 num_img = traindata_pixel.shape[0]
 
+#custum_imshow(img)
 test_a_value(label_test)
 """
 # subtracting mean of each pixel while keeping the dimensions of the images to center the images in preparation for PCA
