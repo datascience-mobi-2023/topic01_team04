@@ -1,12 +1,14 @@
 
-from functions.PCA import pca, custum_imshow, centered
-from functions.KNN import dist, quality, most_common_items, labl
+
 
 
 import numpy as np
 import pandas as pnd
 import matplotlib.pyplot as plt
 import sklearn as skl
+
+from functions.PCA import pca, custum_imshow, centered
+from functions.KNN import dist, quality, most_common_items, labl
 
 testdata = pnd.read_csv('fashion-mnist_test.csv')
 traindata = pnd.read_csv('fashion-mnist_train.csv')

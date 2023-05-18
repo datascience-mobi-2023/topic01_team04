@@ -3,7 +3,6 @@ import pandas as pnd
 import matplotlib.pyplot as plt
  
 
-
 def centered(img):
     """Performs a Z-Transformation on each row of the images
 
@@ -13,18 +12,27 @@ def centered(img):
     Returns:
         numpy array: Z-transformed pictures
     """
-    centered_img = (img - img.mean(axis=(1),keepdims=True))/np.std(img, axis=(1), keepdims=True) 
+    centered_img = (img - img.mean(axis=0))/np.std(img, axis=0) 
     return centered_img
 
 
+def pca(centered_img, prop_variance): 
+    """performs principal component analysis with the columns as variables (pixels) and the rows as realisations (intensities)
 
-def pca(centered_img, prop_variance): #prop_variance can be used as input for proportion of variance OR number of eigenvalues
-    covariance_matrix = np.cov(centered_img, rowvar=False) #covariance matrix, as each column is a variable we need rowvar=False
+    Args:
+        centered_img (numpy array): Z-transformed image
+        prop_variance (int or float): either desired proportion of variance or number of eigenvectors
+
+    Returns:
+        numpy array: transformed matrix
+        numpy array: sorted and sliced eigenmatrix
+    """
+    covariance_matrix = np.cov(centered_img.transpose()) 
     print(covariance_matrix.shape)
-    eigen_val , eigen_vec = np.linalg.eigh(covariance_matrix) #eigh function has two outputs, so two values have to be defined
-    sorted_index = np.argsort(eigen_val)[::-1] #gives indexes to sort array from lowes to highest and inverts this vector
-    sorted_eigenvalue = eigen_val[sorted_index] #apply sorting to eigenvalues
-    sorted_eigenvectors = eigen_vec[:,sorted_index] #apply sorting to eigenvectors, first coordinate (vertical axis) has to be : to select all rows
+    eigen_val , eigen_vec = np.linalg.eig(covariance_matrix) 
+    sorted_index = np.flip(np.argsort(np.abs(eigen_val)))
+    sorted_eigenvalue = eigen_val[sorted_index] 
+    sorted_eigenvectors = eigen_vec[:,sorted_index] 
     def propvar(prop_var): 
         """Adds eigenvalues until desired proportion of variance is reached
 
@@ -36,13 +44,13 @@ def pca(centered_img, prop_variance): #prop_variance can be used as input for pr
         """
         sum = 0
         sum_eigenvalues = np.sum(sorted_eigenvalue)
-        principal_component_number = 1
+        principal_component_number = 0
         for i in sorted_eigenvalue:
             if sum < prop_var*sum_eigenvalues:
                 sum += i
                 principal_component_number += 1
         sum /= sum_eigenvalues
-        print("Our eigenvectors explain " + str(sum) +" % of total variance")
+        print("Our eigenvectors explain " + str(sum*100) +" percent of total variance")
         print(str(principal_component_number) + " eigenvectors are used")
         return principal_component_number
     if prop_variance <= 1:
@@ -50,11 +58,9 @@ def pca(centered_img, prop_variance): #prop_variance can be used as input for pr
     else:
         percent_prop = np.sum(sorted_eigenvalue[0:(int(prop_variance))]) / np.sum(sorted_eigenvalue) * 100
         print("Our eigenvectors explain " + str(percent_prop) + " % of total variance")
-    print(len(sorted_eigenvalue[:(int(prop_variance))]))
-    eigenvectors_pca = sorted_eigenvectors[:,:int(prop_variance)] #slicing of first principil_component_number eigenvectors from sorted eigenvector matrix
-    transformed_matrix_pca = np.dot(eigenvectors_pca.transpose(),centered_img.transpose()).transpose() # Transforming data with dot product of two arrays 
-    return transformed_matrix_pca, eigenvectors_pca #returns eigenvectors to multiply with test data
-
+    eigenvectors_pca = sorted_eigenvectors[:,:int(prop_variance)] 
+    transformed_matrix_pca = np.dot(centered_img,eigenvectors_pca) 
+    return transformed_matrix_pca, eigenvectors_pca 
 
 
 def custum_imshow(img):
