@@ -16,17 +16,20 @@ def centered(img):
     return centered_img
 
 
-def pca(centered_img, prop_variance): 
+def pca(training_img, test_img, prop_variance): 
     """performs principal component analysis with the columns as variables (pixels) and the rows as realisations (intensities)
 
     Args:
-        centered_img (numpy array): Z-transformed image
+        centered_img (numpy array): training images
+        centered_test (numpy array): test images
         prop_variance (int or float): either desired proportion of variance or number of eigenvectors
 
     Returns:
-        numpy array: transformed matrix
-        numpy array: sorted and sliced eigenmatrix
+        numpy array: transformed training matrix
+        numpy array: transformed test matrix
     """
+    centered_img = centered(training_img)
+    centered_test = centered(test_img)
     covariance_matrix = np.cov(centered_img.transpose()) 
     print(covariance_matrix.shape)
     eigen_val , eigen_vec = np.linalg.eig(covariance_matrix) 
@@ -60,7 +63,8 @@ def pca(centered_img, prop_variance):
         print("Our eigenvectors explain " + str(percent_prop) + " % of total variance")
     eigenvectors_pca = sorted_eigenvectors[:,:int(prop_variance)] 
     transformed_matrix_pca = np.dot(centered_img,eigenvectors_pca) 
-    return transformed_matrix_pca, eigenvectors_pca 
+    transformed_test = np.dot(centered_test,eigenvectors_pca)
+    return transformed_matrix_pca, transformed_test
 
 
 def custum_imshow(img):

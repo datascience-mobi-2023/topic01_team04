@@ -28,6 +28,6 @@ label_test = testdata['label'].to_numpy()
 img = traindata_pixel.reshape((-1,28,28)) #only relevant for visualisation
 num_img = traindata_pixel.shape[0]
 
-
+print(np.corrcoef(pca(traindata_pixel,testdata_pixel,12)[1],rowvar=False)) #look at transformed training or test data: in both cases, columns have no correlation with each other
 
 
