@@ -29,7 +29,7 @@ img = traindata_pixel.reshape((-1,28,28)) #only relevant for visualisation
 num_img = traindata_pixel.shape[0]
 PCs_train, PCs_test = pca(traindata_pixel,testdata_pixel,0.90)
 
-print(knn_quality(PCs_train, PCs_test, 10, label_train, label_test, 10))
+print(knn_quality(PCs_train, PCs_test, 10, label_train, label_test, 50))
 #print(np.corrcoef(pca(traindata_pixel,testdata_pixel,12)[1],rowvar=False)) #look at transformed training or test data: in both cases, columns have no correlation with each other
 
 
