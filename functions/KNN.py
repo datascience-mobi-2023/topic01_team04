@@ -3,6 +3,9 @@ import pandas as pnd
 import matplotlib.pyplot as plt
 from collections import Counter
 
+class_names = np.array(["T-shirt / Top", "Trouser", "Pullover", "Dress", "Coat", "Sandal", "Shirt", "Sneaker", "Bag", "Ankle Boot"])
+
+
 def dist(PCs_test, PCs_train, k):
     """
     Calculates the k-nearest neighbors of the test data based on the training data.
@@ -45,6 +48,7 @@ def quality(orginal, result):
     for i in range(0,len(orginal)):
         if orginal[i] != result[i]:
             fal += 1
+            print("Image " + i + " was classified as " + class_names[result[i]] + " but is actually a(n) " + class_names[original[i]])
     false_quote = fal/len(orginal)
     return false_quote
 
@@ -76,5 +80,8 @@ def knn_quality(PCs_train, PCs_test, k, label_train, label_test, testsize, rando
         most_common_item = data.most_common(1)[0][0]
         result.append(most_common_item)
     result = np.array(result)
+    for i in range(0,len(result)):
+        if label_test[indices_test][i] != result[i]:
+            print("Image " + str(i) + " was classified as " + class_names[result[i]] + " but is actually a(n) " + class_names[label_test[indices_test][i]])
     accuracy = np.sum(result==label_test[indices_test])/testsize
     return accuracy

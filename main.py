@@ -24,10 +24,11 @@ testdata_pixel = testdata.drop('label', axis=1).to_numpy()
 traindata_pixel = traindata.drop('label', axis=1).to_numpy()
 label_train = traindata['label'].to_numpy()
 label_test = testdata['label'].to_numpy()
+#class_names = np.array("T-shirt / Top", "Trouser", "Pullover", "Dress", "Coat", "Sandal", "Shirt", "Sneaker", "Bag", "Ankle Boot")
 
 img = traindata_pixel.reshape((-1,28,28)) #only relevant for visualisation
 num_img = traindata_pixel.shape[0]
-PCs_train, PCs_test = pca(traindata_pixel,testdata_pixel,0.90)
+PCs_train, PCs_test = pca(traindata_pixel,testdata_pixel,0.8)
 
 print(knn_quality(PCs_train, PCs_test, 10, label_train, label_test, 50))
 #print(np.corrcoef(pca(traindata_pixel,testdata_pixel,12)[1],rowvar=False)) #look at transformed training or test data: in both cases, columns have no correlation with each other
