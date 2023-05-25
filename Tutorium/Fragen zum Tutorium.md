@@ -19,3 +19,15 @@ Project proposal:
 - Welche Grundlagen sollen rein?
 - Bereits bestehenden Code erklären (auch wenn er nicht funktioniert?)
 
+--- 
+25.05.2023
+- Frage nach Rechner: Cluster von AG Rohr oder AG Hermann? 
+- Cluster BaWü? 
+- Google Colab?
+
+Next Steps: 
+- CNN 
+- Confusion Matrix
+- Warum funktioniert der Code bei dem anderen Datensatz? Mögliche Gründe? 
+-> Needs debugging aber fürs gezielte Debugging: Woran könnte es liegen, ist ja auch MNIST mit 28 x 28
+    geht nur um Theorie, nicht um eigentlichen code
