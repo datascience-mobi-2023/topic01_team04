@@ -31,3 +31,16 @@ Next Steps:
 - Warum funktioniert der Code bei dem anderen Datensatz? Mögliche Gründe? 
 -> Needs debugging aber fürs gezielte Debugging: Woran könnte es liegen, ist ja auch MNIST mit 28 x 28
     geht nur um Theorie, nicht um eigentlichen code
+
+Wir bekommen evtl Feedback
+
+Code -> Plagiate? 
+- Vgl. CNN 
+- Kein Problem 
+- CLUSTER -> Problem 
+- Rumprobieren mit tensorflow keras bzw. scikit learn etc. 
+
+Baustellen: Accuracy, Classification erroe, Conf matrix, Sensitivity and Specificity 
+- ROC curve
+
+-> Plot für 'cluster' 
