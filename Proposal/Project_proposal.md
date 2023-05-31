@@ -36,10 +36,21 @@ Fashion MNIST dataset
 
 https://docs.google.com/presentation/d/1z_QNWF_XVQozLRCbe5V8P-gy0UfbYjYY/edit?usp=sharing&ouid=109709609788655258513&rtpof=true&sd=true
 
-## ToDo Montag
-- Wieso kein Scaling? 
+## ToDo Montag 
 - prints von unserem Dataset einfügen
+--> noch machen
 - In welchem Detail KNN erklären?
+--> DONE
 - Evaluation methods festlegen & kurz anschneiden
+--> DONE
 - In welchem Detail CNN erklären?
+--> Basti
 - bei Timeline Namen dazu? 
+--> nur sagen
+
+
+## ToDo bis Mittwoch
+- jeder überlegt sich seinen Text & spricht den einmal durch & timed das Ganze! (Wer was macht steht in den Notizen der Slides)
+- prints von unserem Dataset einfügen
+- Formel Z-transformation einfügen
+- Formatierung fixen
