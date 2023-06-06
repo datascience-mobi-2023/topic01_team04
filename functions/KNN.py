@@ -1,10 +1,11 @@
 import numpy as np
 import pandas as pnd
 import matplotlib.pyplot as plt
+import sklearn
 from collections import Counter
+from sklearn.metrics import confusion_matrix
 
 class_names = np.array(["T-shirt / Top", "Trouser", "Pullover", "Dress", "Coat", "Sandal", "Shirt", "Sneaker", "Bag", "Ankle Boot"])
-
 
 def dist(PCs_test, PCs_train, k):
     """
@@ -85,3 +86,18 @@ def knn_quality(PCs_train, PCs_test, k, label_train, label_test, testsize, rando
             print("Image " + str(i) + " was classified as " + class_names[result[i]] + " but is actually a(n) " + class_names[label_test[indices_test][i]])
     accuracy = np.sum(result==label_test[indices_test])/testsize
     return accuracy
+
+def conf_matrix(y_pred,label_test,percent=True):
+    """Prints a confusion matrix
+
+    Args:
+        y_pred (1D numpy array): predicted labels
+        label_test (1D numpy array): true labels
+        percent (bool, optional): display absolute values or percent. Defaults to True.
+    """
+    class_names = np.array(["T-shirt / Top", "Trouser", "Pullover", "Dress", "Coat", "Sandal", "Shirt", "Sneaker", "Bag", "Ankle Boot"])
+    conf = sklearn.metrics.confusion_matrix(y_pred, label_test)
+    conf_df = pnd.DataFrame(conf, index=class_names, columns=class_names)
+    if percent==True:
+        conf_df = round(conf_df*100 / conf_df.sum(axis=1),2)
+    print(conf_df)
