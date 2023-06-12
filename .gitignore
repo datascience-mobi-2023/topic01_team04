@@ -1,3 +1,4 @@
 
 *.csv
 !Results/*.csv
+!out.csv
