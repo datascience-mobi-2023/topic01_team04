@@ -101,3 +101,36 @@ def conf_matrix(y_pred,label_test,percent=True):
     if percent==True:
         conf_df = round(conf_df*100 / conf_df.sum(axis=1),2)
     print(conf_df)
+
+    
+def knn_kdtree(PCs_train, PCs_test, k, label_train, label_test, testsize):
+    """returns the accuray of the KNN for test images
+
+    Args:
+        PCs_train (numpy array): transformed training data
+        PCs_test (numpy array): transformed testing data
+        k (int): number of neighbours 
+        label_train (numpy array 1D): labels of training data
+        label_test (numpy array 1D): labels of testing data
+        testsize (int): number of testing images you want to classify
+        
+    Returns:
+        knn for number of testsize images
+    """
+
+    result = np.array([])
+    kd_tree = spatial.KDTree(PCs_train,leafsize=10)
+    count_count = 0
+    for i in range(0, len(label_test), testsize):
+        if count_count % 10 == 0:
+            print("Current progress is " + str(count_count*100/(len(label_test)/testsize)) + " percent.")
+        count_count += 1
+        dist, neighbour_index = kd_tree.query(PCs_test[i:i+testsize, None],p=2,k=k, workers = -1)
+        neighbour_label = label_train[neighbour_index]
+        batch_result = [mode(neighbour_label,axis=2)[0]]
+        batch_result = np.array(batch_result)
+        batch_result = np.squeeze(batch_result)
+        batch_result = batch_result.astype(int)
+        result = result.astype(int)
+        result = np.concatenate((result, batch_result), axis=0)
+    return result
