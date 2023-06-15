@@ -2,6 +2,9 @@ import numpy as np
 import pandas as pnd
 import matplotlib.pyplot as plt
 import sklearn
+from scipy import spatial
+from scipy.spatial import KDTree
+from scipy.stats import mode
 from collections import Counter
 from sklearn.metrics import confusion_matrix
 
@@ -134,3 +137,5 @@ def knn_kdtree(PCs_train, PCs_test, k, label_train, label_test, testsize):
         result = result.astype(int)
         result = np.concatenate((result, batch_result), axis=0)
     return result
+
+
