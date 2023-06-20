@@ -20,3 +20,4 @@ def dist(PCs_test,PCs_train,k):
         print('\n')
     return class_k
 """
+
