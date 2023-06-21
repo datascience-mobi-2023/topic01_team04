@@ -44,3 +44,9 @@ Baustellen: Accuracy, Classification erroe, Conf matrix, Sensitivity and Specifi
 - ROC curve
 
 -> Plot für 'cluster' 
+
+
+
+für 21.06.
+- Dürfen wir unsere Forschungsfrage anpassen zu "Vgl von KNN zu CNN"?
+
