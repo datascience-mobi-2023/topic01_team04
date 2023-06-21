@@ -49,4 +49,13 @@ Baustellen: Accuracy, Classification erroe, Conf matrix, Sensitivity and Specifi
 
 für 21.06.
 - Dürfen wir unsere Forschungsfrage anpassen zu "Vgl von KNN zu CNN"?
+--> Sie fragt nochmal bei Leonid nach
+--> vermutlich ist es okay, wenn wir den Basics weniger Platz geben & uns eher auf die Results vom Vergleich von KNN & CNN fokussieren
 
+- Sie fragt nach inwiefern wir code auskommentieren sollen & wie weit wir das aufräumen müssen am Ende
+
+ToDo:
+- Sind die Klassen zustande gekommen? von Zalando kategoerisiert oder von Informatikern kategorisiert?
+- Quotientenmatrix (nächste Woche)
+- 2 stufige CNN
+- report
