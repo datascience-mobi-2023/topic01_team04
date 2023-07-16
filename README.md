@@ -1,9 +1,9 @@
 # team04 of topic01 
 
 ## Goal of the project
-The goal of this project was, to implement a k-nearest neighbor algorithm for the Zalando Fashion MNIST dataset. 
+The goal of this project was to implement a k-nearest neighbor algorithm for the Zalando Fashion MNIST dataset. 
 
-We successfully completet this goal, even going further and implementing the same for the Handwritten Digits MNIST dataset for verification. Furthermore we implemented a vgg-model based convolutional neural network for the Fashion MNIST dataset. 
+We successfully completed this goal, even going further and implementing the same for the Handwritten Digits MNIST dataset for verification. Furthermore we implemented a vgg-model based convolutional neural network for the Fashion MNIST dataset. 
 
 ## Structure of the repository
 This repository is structured into folders:
