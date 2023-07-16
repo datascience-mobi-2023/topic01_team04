@@ -1,4 +1,15 @@
 # team04 of topic01 
- This is the GitHub repository for team04 of the topic01.  
- To refresh your memory on how to manage GitHub, you can find commonly used commands [here](https://github.com/joshnh/Git-Commands). 
+
+## Goal of the project
+The goal of this project was, to implement a k-nearest neighbor algorithm for the Zalando Fashion MNIST dataset. 
+
+We successfully completet this goal, even going further and implementing the same for the Handwritten Digits MNIST dataset for verification. Furthermore we implemented a vgg-model based convolutional neural network for the Fashion MNIST dataset. 
+
+## Structure of the repository
+This repository is structured into folders:
+- The **functions** Folder comprises .py files, where the important functions for the PCA and the KNN are stored. 
+- The **proposal** Folder comprises all files important for the project proposal. 
+- The **Report** Folder comprises the **Plots** folder, where all plots are stored that are included in the Report itself. 
+- The **Results** Folder comprises all results stored in a .csv format as well as the folders with the trained algorithm data. 
+
  
