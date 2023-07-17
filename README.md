@@ -12,4 +12,8 @@ This repository is structured into folders:
 - The **Report** Folder comprises the **Plots** folder, where all plots are stored that are included in the Report itself. 
 - The **Results** Folder comprises all results stored in a .csv format as well as the folders with the trained algorithm data. 
 
- 
+## Required downloads
+Since GitHub limits the size of uploads, you need to install the following files to "topic01_team04":
+- fashion-mnist_train.csv
+- mnist_train.csv
+- mnist_test.csv
